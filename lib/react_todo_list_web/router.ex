@@ -21,9 +21,10 @@ defmodule ReactTodoListWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ReactTodoListWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", ReactTodoListWeb, as: :api do
+    pipe_through :api
+    resources "/tasks", TaskController
+  end
 
   # Enables LiveDashboard only for development
   #
