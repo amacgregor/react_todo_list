@@ -14,17 +14,22 @@ defmodule ReactTodoListWeb.Router do
     plug :accepts, ["json"]
   end
 
+
+  # Other scopes may use custom stacks.
+  scope "/api", ReactTodoListWeb.Api, as: :api do
+    pipe_through :api
+
+    resources "/tasks", TaskController
+  end
+
   scope "/", ReactTodoListWeb do
     pipe_through :browser
 
     get "/", PageController, :index
-  end
-
-  # Other scopes may use custom stacks.
-  scope "/api", ReactTodoListWeb, as: :api do
-    pipe_through :api
     resources "/tasks", TaskController
   end
+
+
 
   # Enables LiveDashboard only for development
   #

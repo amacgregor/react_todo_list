@@ -43,8 +43,5 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-import React from "react";
-import ReactDOM from "react-dom";
-import ReactHello from "./react_hello";
-const hello = document.getElementById("hello");
-ReactDOM.render(<ReactHello name="Phoenix" />, hello);
+
+import './react/index.jsx'
